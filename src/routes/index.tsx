@@ -479,7 +479,7 @@ function Footer() {
 function Index() {
   useReveal();
   return (
-    <main className="relative bg-background text-foreground">
+    <main className="relative bg-background text-foreground pb-14 md:pb-0">
       <EdgeCursor />
       <Nav />
       <Hero />
