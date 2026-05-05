@@ -63,31 +63,54 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "backdrop-blur-xl bg-background/60 border-b border-border" : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-12">
-        <a href="#top" className="font-display text-3xl tracking-[0.18em] text-bone">
-          EDGE<span className="text-edge">.</span>
-        </a>
-        <nav className="hidden items-center gap-10 md:flex">
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled ? "backdrop-blur-xl bg-background/70 border-b border-border" : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-4 md:px-12 md:py-5">
+          <a href="#top" className="font-display text-2xl tracking-[0.18em] text-bone md:text-3xl">
+            EDGE<span className="text-edge">.</span>
+          </a>
+          <nav className="hidden items-center gap-10 md:flex">
+            {NAV.map(([label, href]) => (
+              <a key={href} href={href} className="hover-edge font-sans text-xs uppercase tracking-[0.25em] text-bone/80">
+                {label}
+              </a>
+            ))}
+          </nav>
+          <a
+            href="#contact"
+            className="group relative hidden md:inline-flex items-center gap-2 border border-bone/30 px-5 py-2.5 font-sans text-xs uppercase tracking-[0.25em] text-bone transition-all duration-300 hover:border-edge hover:bg-edge hover:text-bone hover:shadow-[0_0_30px_-5px_var(--edge)]"
+          >
+            Book an Event
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+          <a href="#contact" className="md:hidden font-sans text-[10px] uppercase tracking-[0.3em] text-edge">
+            Book →
+          </a>
+        </div>
+      </header>
+
+      {/* Mobile bottom navigation */}
+      <nav
+        className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-border backdrop-blur-xl bg-background/85"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      >
+        <div className="grid grid-cols-5">
           {NAV.map(([label, href]) => (
-            <a key={href} href={href} className="hover-edge font-sans text-xs uppercase tracking-[0.25em] text-bone/80">
+            <a
+              key={href}
+              href={href}
+              className="flex items-center justify-center py-3 font-sans text-[10px] uppercase tracking-[0.2em] text-bone/75 active:text-edge"
+            >
               {label}
             </a>
           ))}
-        </nav>
-        <a
-          href="#contact"
-          className="group relative inline-flex items-center gap-2 border border-bone/30 px-5 py-2.5 font-sans text-xs uppercase tracking-[0.25em] text-bone transition-all duration-300 hover:border-edge hover:bg-edge hover:text-bone hover:shadow-[0_0_30px_-5px_var(--edge)]"
-        >
-          Book an Event
-          <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-        </a>
-      </div>
-    </header>
+        </div>
+      </nav>
+    </>
   );
 }
 
@@ -456,7 +479,7 @@ function Footer() {
 function Index() {
   useReveal();
   return (
-    <main className="relative bg-background text-foreground">
+    <main className="relative bg-background text-foreground pb-14 md:pb-0">
       <EdgeCursor />
       <Nav />
       <Hero />
