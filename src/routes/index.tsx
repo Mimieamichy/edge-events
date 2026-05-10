@@ -19,15 +19,6 @@ import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Edge Events — We Engineer Experiences" },
-      { name: "description", content: "Edge Events designs and produces boundary-pushing corporate events, brand activations, product launches and high-end private experiences worldwide." },
-      { property: "og:title", content: "Edge Events — We Engineer Experiences" },
-      { property: "og:description", content: "Premium event production. Corporate galas, brand activations, product launches, private experiences." },
-      { property: "og:type", content: "website" },
-    ],
-  }),
   component: Index,
 });
 
